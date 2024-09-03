@@ -1,0 +1,13 @@
+---
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: madhusvc
+spec:
+  type: LoadBalancer
+  selector:
+    app: madhuapp
+  ports:
+    - port: 80
+      targetPort: 9595
+...
