@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: madhudeployment
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: madhuapp
+  template:
+    metadata:
+      labels:
+        app: madhuapp
+    spec:
+      containers:
+        - name: madhuappcontainer
+          image: public.ecr.aws/q2v7l2n8/ganesh8195/ngs-jobportal:1.0.0-46
+          ports:
+            - containerPort: 9595
